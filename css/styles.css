@@ -429,6 +429,142 @@ header h2 {
 
 /* :::: END OF PRACTICE :::: */
 
+/* :::: START OF LEARNING :::: */
+
+/* --- DESKTOP SECTION --- */
+
+/* Learning Header */
+.learning-container {
+  background-color: #c8c8c8;
+  display: grid;
+  grid-column: full--start / full--end;
+}
+
+.learning-heading {
+  text-align: center;
+  font-size: 2.6rem;
+  font-weight: 700;
+  padding: 2rem 0;
+}
+
+/* Start of Learning Cards */
+
+.learning-card-container {
+  background-color: #c8c8c8;
+  display: grid;
+  grid-column: full--start / full--end;
+  grid-template-columns: repeat(3, 1fr);
+  padding-left: 4.5rem;
+  padding-right: 4.5rem;
+  text-decoration: none;
+  padding-bottom: 2rem;
+}
+
+.learning-card {
+  background-color: #fff;
+  border: 1px solid;
+  margin: 2rem 2rem;
+  padding-bottom: 2rem;
+  text-decoration: none;
+  color: #8e8e8e;
+}
+
+/* Sets the font color */
+.learning-card h4,
+.scope {
+  font-weight: 700;
+  color: #303646;
+}
+
+.learning-card span,
+.scope {
+  color: #8e8e8e;
+}
+
+/* End of font color styling */
+
+.learning-card a {
+  text-decoration: none;
+}
+
+.learning-card img {
+  width: 100%;
+}
+
+.learning-card h4,
+.learning-card p,
+.scope {
+  font-size: 2rem;
+  padding-top: 2rem;
+  padding-left: 2.2rem;
+}
+
+.scope {
+  padding-top: 2rem;
+}
+
+.learning-card:hover {
+  transition: 0.2s ease-out;
+  transform: scale(1.05);
+}
+
+.learning-container-mobile {
+  display: none;
+}
+
+.learning-mobile {
+  display: none;
+}
+
+/* ---Mobile Section--- */
+@media only screen and (max-width: 37.5em), (max-width: 48em) {
+  .learning-card-container,
+  .learning-container {
+    display: none;
+  }
+
+  .learning-container-mobile {
+    display: grid;
+    background-color: ##ffffff;
+    grid-column: full--start / full--end;
+    font-weight: 700;
+  }
+
+  .learning-heading-mobile {
+    text-align: center;
+    font-size: 3rem;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+  }
+
+  .learning-mobile {
+    display: grid;
+    grid-column: full--start / full--end;
+  }
+
+  .learning-mobile-card {
+    grid-template-columns: 1fr;
+    padding-top: 2rem;
+    padding-bottom: 1.5rem;
+    padding-left: 2rem;
+    background: #c8c8c8;
+    margin: 0.5rem 2rem;
+    font-size: 2rem;
+    text-decoration: none;
+  }
+
+  .learning-mobile a {
+    text-decoration: none;
+    color: #303646;
+    font-weight: 700;
+  }
+}
+
+/* End of Learning Cards */
+/* --- MOBILE SECTION --- */
+
+/* :::: END OF LEARNING :::: */
+
 /* :::: START OF FOOTER :::: */
 
 /* --- DESKTOP SECTION --- */
