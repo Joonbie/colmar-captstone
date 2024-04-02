@@ -525,7 +525,7 @@ header h2 {
 
   .learning-container-mobile {
     display: grid;
-    background-color: ##ffffff;
+    background-color: #fff;
     grid-column: full--start / full--end;
     font-weight: 700;
   }
