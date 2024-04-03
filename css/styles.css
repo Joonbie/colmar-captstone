@@ -9,6 +9,16 @@
 /* the following CSS rules (*,*::before,*::after) universally removes browser default styling so that the elements are consistent across different browsers. box-sizing: inherit property ensures that any custom box-sizing set in other parts of this CSS style will still apply.
  */
 
+:root {
+  --bg-white: #fff;
+  --bg-dark-grey: #d8d8d8;
+  --fnt-white: #fff;
+  --fnt-light-blue: #30a8df;
+  --fnt-light-grey: #8e8e8e;
+  --font-dark-grey: #303646;
+  --brdr-clr: #e7e7e7;
+}
+
 /* for the first and last child if everything, reset the css style to default */
 *,
 *::before,
@@ -36,7 +46,7 @@ html {
 /* max-width <= 93.75em (1500px), set html background-color to white*/
 @media only screen and (max-width: 93.75em) {
   html {
-    background-color: #fff;
+    background-color: var(--bg-white);
   }
 }
 
@@ -107,10 +117,13 @@ For context, refer to the diagram namedgridlines.jpg:
 .nav {
   grid-column: full--start / full--end;
   padding: 1rem 1.5rem;
-  background-color: #fff;
+  background-color: var(--bg-white);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  z-index: 5;
+  top: 0rem;
 }
 
 /* set .logo width and height */
@@ -217,8 +230,8 @@ For context, refer to the diagram namedgridlines.jpg:
 
 /* set .header_picture's background-color */
 .header-picture {
-  background-color: #c8c8c8;
-  padding: 2rem 0.75rem; /* top & bottom, left & right*/
+  background-color: var(--bg-dark-grey);
+  padding: 2rem 1.5rem; /* top & bottom, left & right*/
 }
 
 /* set <img> width within .header-picture to 100% */
@@ -229,7 +242,7 @@ For context, refer to the diagram namedgridlines.jpg:
 
 /* set .header-content, note the padding set to the right */
 .header-content {
-  background-color: #c8c8c8;
+  background-color: var(--bg-dark-grey);
   padding: 0.75rem 4rem 0.75rem 0.75rem; /* top, right, bottom, left */
   display: flex;
   flex-direction: column;
@@ -333,7 +346,7 @@ header h2 {
   padding: 2rem 0;
 }
 
-.practice-text {
+.section-text {
   font-size: 1.6rem;
   margin-bottom: 2rem;
 }
@@ -346,11 +359,10 @@ header h2 {
 
 .info {
   background-color: #f0f0f0;
-  border-left: 1px solid #e7e7e7;
+  border-left: 1px solid var(--brdr-clr);
   display: grid;
   grid-template-rows: repeat(3, 1fr);
   row-gap: 3px;
-  margin-top: 2rem;
 }
 
 .info-block {
@@ -358,8 +370,8 @@ header h2 {
   display: grid;
   grid-template-columns: 0.4fr 0.6fr;
   column-gap: 5%;
-  border-top: 1px solid #e7e7e7;
-  border-bottom: 1px solid #e7e7e7;
+  border-top: 1px solid var(--brdr-clr);
+  border-bottom: 1px solid var(--brdr-clr);
   align-items: center;
   padding-right: 2.5rem;
 }
@@ -381,14 +393,14 @@ header h2 {
 }
 
 .info-block:last-child {
-  background: #d7d7d7;
+  background: var(--bg-dark-grey);
 }
 
 .btn-small:link,
 .btn-small:visited {
   font-size: 1.4rem;
   font-weight: 400;
-  color: #30a8df;
+  color: var(--fnt-light-blue);
 }
 
 .btn-small:hover,
@@ -420,6 +432,12 @@ header h2 {
   .info-block {
     grid-template-columns: 1fr;
     padding: 2rem;
+    border-bottom: none;
+    border-top: none;
+  }
+
+  .info-block:last-child {
+    border-bottom: 1px solid var(--brdr-clr);
   }
 
   .info-block:last-child {
@@ -435,12 +453,12 @@ header h2 {
 
 /* Learning Header */
 .learning-container {
-  background-color: #c8c8c8;
+  background-color: var(--bg-dark-grey);
   display: grid;
   grid-column: full--start / full--end;
 }
 
-.learning-heading {
+.section-heading {
   text-align: center;
   font-size: 2.6rem;
   font-weight: 700;
@@ -450,7 +468,7 @@ header h2 {
 /* Start of Learning Cards */
 
 .learning-card-container {
-  background-color: #c8c8c8;
+  background-color: var(--bg-dark-grey);
   display: grid;
   grid-column: full--start / full--end;
   grid-template-columns: repeat(3, 1fr);
@@ -461,12 +479,12 @@ header h2 {
 }
 
 .learning-card {
-  background-color: #fff;
-  border: 1px solid;
-  margin: 2rem 2rem;
+  background-color: var(--bg-white);
+  margin-right: 2rem;
+  margin-bottom: 2rem;
   padding-bottom: 2rem;
   text-decoration: none;
-  color: #8e8e8e;
+  color: var(--fnt-light-grey);
 }
 
 /* Sets the font color */
@@ -478,7 +496,7 @@ header h2 {
 
 .learning-card span,
 .scope {
-  color: #8e8e8e;
+  color: var(--fnt-light-grey);
 }
 
 /* End of font color styling */
@@ -508,7 +526,7 @@ header h2 {
   transform: scale(1.05);
 }
 
-.learning-container-mobile {
+.section-container-mobile {
   display: none;
 }
 
@@ -523,14 +541,14 @@ header h2 {
     display: none;
   }
 
-  .learning-container-mobile {
+  .section-container-mobile {
     display: grid;
     background-color: #fff;
     grid-column: full--start / full--end;
     font-weight: 700;
   }
 
-  .learning-heading-mobile {
+  .section-heading-mobile {
     text-align: center;
     font-size: 3rem;
     padding-top: 2rem;
@@ -540,6 +558,8 @@ header h2 {
   .learning-mobile {
     display: grid;
     grid-column: full--start / full--end;
+    border-bottom: 1px solid var(--brdr-clr);
+    padding-bottom: 2rem;
   }
 
   .learning-mobile-card {
@@ -547,7 +567,7 @@ header h2 {
     padding-top: 2rem;
     padding-bottom: 1.5rem;
     padding-left: 2rem;
-    background: #c8c8c8;
+    background: var(--bg-dark-grey);
     margin: 0.5rem 2rem;
     font-size: 2rem;
     text-decoration: none;
@@ -566,9 +586,75 @@ header h2 {
 }
 
 /* End of Learning Cards */
-/* --- MOBILE SECTION --- */
 
 /* :::: END OF LEARNING :::: */
+
+/* :::: START OF THESIS :::: */
+
+/* --- Desktop SECTION --- */
+
+.thesis-container {
+  display: grid;
+  grid-column: full--start / full--end;
+}
+
+.thesis-video-container {
+  background-color: var(--bg-white);
+  display: grid;
+  grid-column: full--start / center--end;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  border-bottom: 1px solid var(--brdr-clr);
+}
+
+.thesis-video-container video {
+  width: 100%;
+}
+
+.thesis-video-container h3 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  padding-bottom: 0rem;
+}
+
+.thesis {
+  background-color: var(--bg-white);
+  border-bottom: 1px solid var(--brdr-clr);
+}
+.thesis-block:first-child {
+  background: #d7d7d7;
+}
+
+.thesis-block:last-child {
+  background-color: transparent;
+}
+/* --- MOBILE SECTION --- */
+
+.thesis-mobile-container {
+  display: none;
+}
+
+@media only screen and (max-width: 37.5em), (max-width: 48em) {
+  .thesis-video-container {
+    display: none;
+  }
+
+  .thesis-container {
+    display: none;
+  }
+
+  .thesis-mobile-container {
+    display: grid;
+    grid-column: full--start / full--end;
+    padding-bottom: 1.5rem;
+  }
+
+  .thesis-mobile-container video {
+    width: 100%;
+  }
+}
+
+/* :::: END  OF THESIS :::: */
 
 /* :::: START OF FOOTER :::: */
 
@@ -577,7 +663,7 @@ header h2 {
 .footer {
   display: flex;
   font-size: 1.2rem;
-  background-color: #f0f0f0;
+  background-color: var(--bg-white);
   grid-column: full--start / full--end;
   padding: 1rem 1.5rem 2rem 1.5rem;
 }
@@ -610,7 +696,7 @@ header h2 {
 
 /* --- MOBILE SECTION --- */
 
-@media only screen and (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em), (max-width: 48em) {
   .footer-list {
     display: none;
   }
