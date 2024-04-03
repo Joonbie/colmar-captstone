@@ -598,6 +598,7 @@ header h2 {
 .thesis-container {
   display: grid;
   grid-column: full--start / full--end;
+  background-color: var(--bg-white);
 }
 
 .thesis-video-container {
