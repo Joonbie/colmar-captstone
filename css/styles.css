@@ -553,6 +553,11 @@ header h2 {
     text-decoration: none;
   }
 
+  .learning-mobile-card:hover {
+    transition: 0.2s ease-out;
+    transform: scale(1.05);
+  }
+
   .learning-mobile a {
     text-decoration: none;
     color: #303646;
